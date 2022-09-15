@@ -78,17 +78,16 @@ int NthFibonacci(int n) {
 }
 
 // takes an int, n, and returns the factorial of that int (n!)
-int Factorial(int n)
-{
-    if (n == 0)
-    {
-        return 1;
-    }
-    return n * Factorial(n - 1);
+
+int Factorial(int n) {
+    return n == 1 ? 1 : n*Factorial(n-1);
+
 }
 
 // returns -1 if the number is negative and 1 if positive
-int Sign(int num);
+int Sign(int num) {
+    return num > 0 ? true : false;
+}
 
 // takes two vectors of doubles, a and b. The function then removes elements from a if they are also in b.
 // If the double is in b, but not in a, nothing happens.
