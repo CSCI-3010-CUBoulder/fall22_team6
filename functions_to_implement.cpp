@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+
 /* String functions section */
 #include <iostream>
 #include <vector>
@@ -26,12 +29,20 @@ int RemoveTwos(int original);
 std::vector<int> MultiplesFilter(std::vector<int>, int divides_by);
 
 // returns a vector with true for even numbers and false for odd numbers
-std::vector<bool> EvenMask(std::vector<int> numbers) {
-    std::vector<bool> mask;
-    for (int i = 0; i < numbers.size(); i++) {
-        mask.push_back(!(numbers[i] % 2));
+std::vector<bool> EvenMask(std::vector<int> nums)
+{
+    std::vector<bool> ret = std::vector<bool>();
+
+    int i = 0;
+    int len = nums.size();
+    while (i < len)
+    {
+
+        ret.push_back(nums[i] & 2);
+        i++;
     }
-    return mask;
+
+    return ret;
 }
 
 // returns a vector with true for odd numbers and false for even numbers
@@ -75,10 +86,16 @@ int NthFibonacci(int n) {
 }
 
 // takes an int, n, and returns the factorial of that int (n!)
-int Factorial(int n);
+
+int Factorial(int n) {
+    return n == 1 ? 1 : n*Factorial(n-1);
+
+}
 
 // returns -1 if the number is negative and 1 if positive
-int Sign(int num);
+int Sign(int num) {
+    return num > 0 ? true : false;
+}
 
 // takes two vectors of doubles, a and b. The function then removes elements from a if they are also in b.
 // If the double is in b, but not in a, nothing happens.
@@ -118,7 +135,6 @@ std::vector<double> Multiples(double n, double m);
 // returns -1 if the number is negative and 1 if positive
 double Sign(double num);
 
-
 // adds n to each element of the vector
 std::vector<int> AddN(std::vector<int>, int n);
 
@@ -127,7 +143,6 @@ std::vector<double> AddN(std::vector<double>, double n);
 
 // adds n to each element of the vector
 std::vector<std::string> AddN(std::vector<std::string>, std::string n);
-
 
 // subtracts n to each element of the vector
 std::vector<int> SubtractN(std::vector<int>, int n);
