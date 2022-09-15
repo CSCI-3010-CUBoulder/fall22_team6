@@ -2,6 +2,8 @@
 #include <vector>
 
 /* String functions section */
+#include <iostream>
+#include <vector>
 
 // Splits a single string on separator into a vector of strings
 std::vector<std::string> Split(std::string whole, std::string separator);
@@ -44,7 +46,13 @@ std::vector<bool> EvenMask(std::vector<int> nums)
 }
 
 // returns a vector with true for odd numbers and false for even numbers
-std::vector<bool> OddMask(std::vector<int>);
+std::vector<bool> OddMask(std::vector<int> numbers) {
+    std::vector<bool> mask;
+    for (int i = 0; i < numbers.size(); i++) {
+        mask.push_back(numbers[i] % 2);
+    }
+    return mask;
+}
 
 // Sums all numbers in a vector and returns the resulting value
 int Sum(std::vector<int> nums);
@@ -70,7 +78,7 @@ int NthFibonacci(int n) {
     int curr = 1;
     int prev = 1;
     for (int i = 0; i < n; i++) {
-        temp = curr;
+        int temp = curr;
         curr += prev;
         prev = temp;
     }
