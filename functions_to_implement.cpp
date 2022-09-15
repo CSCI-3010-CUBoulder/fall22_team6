@@ -67,7 +67,7 @@ int NthFibonacci(int n) {
     int curr = 1;
     int prev = 1;
     for (int i = 0; i < n; i++) {
-        temp = curr;
+        int temp = curr;
         curr += prev;
         prev = temp;
     }
