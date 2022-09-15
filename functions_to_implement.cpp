@@ -1,3 +1,6 @@
+#include <iostream>
+#include <vector>
+
 /* String functions section */
 
 // Splits a single string on separator into a vector of strings
@@ -24,7 +27,21 @@ int RemoveTwos(int original);
 std::vector<int> MultiplesFilter(std::vector<int>, int divides_by);
 
 // returns a vector with true for even numbers and false for odd numbers
-std::vector<bool> EvenMask(std::vector<int>);
+std::vector<bool> EvenMask(std::vector<int> nums)
+{
+    std::vector<bool> ret = std::vector<bool>();
+
+    int i = 0;
+    int len = nums.size();
+    while (i < len)
+    {
+
+        ret.push_back(nums[i] & 2);
+        i++;
+    }
+
+    return ret;
+}
 
 // returns a vector with true for odd numbers and false for even numbers
 std::vector<bool> OddMask(std::vector<int>);
@@ -49,11 +66,22 @@ std::vector<int> Multiples(int n, int m);
 std::vector<int> SquaresUntil(int n);
 
 // takes an int, n, and returns the nth value of the fibonacci sequence (1, 1, 2, 3, 5, 8, 13, ...)
-int NthFibonacci(int n);
+int NthFibonacci(int n) {
+    int curr = 1;
+    int prev = 1;
+    for (int i = 0; i < n; i++) {
+        temp = curr;
+        curr += prev;
+        prev = temp;
+    }
+    return prev;
+}
 
 // takes an int, n, and returns the factorial of that int (n!)
+
 int Factorial(int n) {
     return n == 1 ? 1 : n*Factorial(n-1);
+
 }
 
 // returns -1 if the number is negative and 1 if positive
@@ -99,7 +127,6 @@ std::vector<double> Multiples(double n, double m);
 // returns -1 if the number is negative and 1 if positive
 double Sign(double num);
 
-
 // adds n to each element of the vector
 std::vector<int> AddN(std::vector<int>, int n);
 
@@ -108,7 +135,6 @@ std::vector<double> AddN(std::vector<double>, double n);
 
 // adds n to each element of the vector
 std::vector<std::string> AddN(std::vector<std::string>, std::string n);
-
 
 // subtracts n to each element of the vector
 std::vector<int> SubtractN(std::vector<int>, int n);
