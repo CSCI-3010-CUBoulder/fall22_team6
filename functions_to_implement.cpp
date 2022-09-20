@@ -78,15 +78,15 @@ std::vector<int> SquaresUntil(int n);
 // takes an int, n, and returns the nth value of the fibonacci sequence (1, 1, 2, 3, 5, 8, 13, ...)
 int NthFibonacci(int n)
 {
-    int curr = 1;
-    int prev = 1;
-    for (int i = 0; i < n; i++)
+    if (n > 1)
     {
-        int temp = curr;
-        curr += prev;
-        prev = temp;
+        return NthFibonacci(n - 2) + NthFibonacci(n - 1);
     }
-    return prev;
+    else if (n < 0)
+    {
+        return -1;
+    }
+    return 1;
 }
 
 // takes an int, n, and returns the factorial of that int (n!)
