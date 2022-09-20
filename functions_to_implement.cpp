@@ -46,9 +46,11 @@ std::vector<bool> EvenMask(std::vector<int> nums)
 }
 
 // returns a vector with true for odd numbers and false for even numbers
-std::vector<bool> OddMask(std::vector<int> numbers) {
+std::vector<bool> OddMask(std::vector<int> numbers)
+{
     std::vector<bool> mask;
-    for (int i = 0; i < numbers.size(); i++) {
+    for (unsigned int i = 0; i < numbers.size(); i++)
+    {
         mask.push_back(numbers[i] % 2);
     }
     return mask;
@@ -74,27 +76,37 @@ std::vector<int> Multiples(int n, int m);
 std::vector<int> SquaresUntil(int n);
 
 // takes an int, n, and returns the nth value of the fibonacci sequence (1, 1, 2, 3, 5, 8, 13, ...)
-int NthFibonacci(int n) {
-    int curr = 1;
-    int prev = 1;
-    for (int i = 0; i < n; i++) {
-        int temp = curr;
-        curr += prev;
-        prev = temp;
+int NthFibonacci(int n)
+{
+    if (n > 1)
+    {
+        return NthFibonacci(n - 2) + NthFibonacci(n - 1);
     }
-    return prev;
+    else if (n < 0)
+    {
+        return -1;
+    }
+    return 1;
 }
 
 // takes an int, n, and returns the factorial of that int (n!)
 
-int Factorial(int n) {
-    return n == 1 ? 1 : n*Factorial(n-1);
-
+int Factorial(int n)
+{
+    return n == 1 ? 1 : n * Factorial(n - 1);
 }
 
 // returns -1 if the number is negative and 1 if positive
-int Sign(int num) {
-    return num > 0 ? true : false;
+int Sign(int num)
+{
+
+    int ret = 1;
+    if (num < 0)
+    {
+        ret = -1;
+    }
+
+    return ret;
 }
 
 // takes two vectors of doubles, a and b. The function then removes elements from a if they are also in b.
