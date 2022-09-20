@@ -48,7 +48,7 @@ std::vector<bool> EvenMask(std::vector<int> nums)
 // returns a vector with true for odd numbers and false for even numbers
 std::vector<bool> OddMask(std::vector<int> numbers) {
     std::vector<bool> mask;
-    for (int i = 0; i < numbers.size(); i++) {
+    for (unsigned int i = 0; i < numbers.size(); i++) {
         mask.push_back(numbers[i] % 2);
     }
     return mask;
